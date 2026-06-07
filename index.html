@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>葛晴 — Creative Marketing & Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+SC:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #fafafa;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #666;
+            --color-accent: #333;
+            --color-border: #e0e0e0;
+            --color-hover: #000;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-serif-sc: 'Songti SC', 'Noto Serif SC', serif;
+            --font-sans: 'Noto Sans SC', 'Space Grotesk', sans-serif;
+            --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: var(--color-bg);
+        }
+
+        nav .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--color-text);
+            letter-spacing: 0.02em;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: opacity 0.3s var(--transition);
+        }
+
+        nav .nav-links a:hover {
+            opacity: 0.5;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 4rem;
+            position: relative;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeIn 1s var(--transition) 0.3s forwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero h1 .line span {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: slideUp 1s var(--transition) forwards;
+        }
+
+        .hero h1 .line:nth-child(2) span {
+            animation-delay: 0.15s;
+        }
+
+        .hero h1 .line:nth-child(3) span {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes slideUp {
+            to { transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            font-weight: 300;
+            max-width: 500px;
+            opacity: 0;
+            animation: fadeIn 1s var(--transition) 0.6s forwards;
+        }
+
+        .hero-keyword-group {
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s var(--transition) forwards;
+        }
+        .hero-keyword-group:nth-child(2) { animation-delay: 0.15s; }
+        .hero-keyword-group:nth-child(3) { animation-delay: 0.3s; }
+        .kw-en {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin: 0 0 0.3rem 0;
+            color: var(--color-text);
+        }
+        .kw-zh {
+            font-family: var(--font-serif-sc);
+            font-size: clamp(1rem, 1.6vw, 1.4rem);
+            font-weight: 300;
+            line-height: 1.5;
+            margin: 0;
+            color: var(--color-text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s var(--transition) 1s forwards;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--color-text-secondary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 4rem;
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about-intro {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .about-detail-item {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .about-detail-item .label {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-detail-item .value {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        /* Experience Section */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--color-border);
+            transition: opacity 0.3s var(--transition);
+        }
+
+        .experience-item:last-child {
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .experience-item:hover {
+            opacity: 0.7;
+        }
+
+        .exp-year {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            padding-top: 0.3rem;
+        }
+
+        .exp-content h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-content .exp-role {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-content .exp-desc {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+
+        .exp-content .exp-desc li {
+            list-style: none;
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-content .exp-desc li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7em;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--color-text-secondary);
+        }
+
+        /* Projects Section */
+        .projects-section-content {
+            display: flex;
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .projects-side-nav {
+            position: sticky;
+            top: 8rem;
+            align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            width: 60px;
+            min-width: 60px;
+            max-width: 60px;
+            flex-shrink: 0;
+        }
+
+        .projects-side-nav a {
+            text-decoration: none;
+            color: var(--color-text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 1rem 0;
+            transition: color 0.3s var(--transition);
+            position: relative;
+        }
+
+        .projects-side-nav a:hover,
+        .projects-side-nav a.active {
+            color: var(--color-text);
+        }
+
+        .projects-side-nav .nav-line {
+            width: 1px;
+            height: 24px;
+            background: var(--color-border);
+        }
+
+        .projects-side-nav .nav-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-border);
+            transition: background 0.3s var(--transition);
+        }
+
+        .projects-side-nav a.active + .nav-line + .nav-dot,
+        .projects-side-nav a.active ~ .nav-dot {
+            background: var(--color-text);
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .project-card {
+            position: relative;
+            padding: 3rem;
+            background: #fff;
+            border: 1px solid var(--color-border);
+            transition: all 0.4s var(--transition);
+            cursor: default;
+            width: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+        }
+
+        .project-card .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .project-card .project-images img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 4px;
+            transition: transform 0.4s var(--transition);
+        }
+
+        .project-card .project-images img:hover {
+            transform: scale(1.03);
+        }
+
+        .project-card .project-images-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card .project-images-row img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.4s var(--transition);
+        }
+
+        .project-card .project-images-row img:hover {
+            transform: scale(1.03);
+        }
+
+        .project-card .project-images-row-auto {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            align-items: stretch;
+            width: 100%;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .project-card .project-images-row-auto img {
+            height: 100%;
+            width: auto;
+            min-width: 0;
+            object-fit: contain;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.4s var(--transition);
+        }
+
+        .project-card .project-images-row-auto img:hover {
+            transform: scale(1.03);
+        }
+
+        .project-card .project-images-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .project-card .project-images-grid-4 img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.4s var(--transition);
+        }
+
+        .project-card .project-images-grid-4 img:hover {
+            transform: scale(1.03);
+        }
+
+        .project-card .project-link-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card .project-link-card a {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--color-text);
+            transition: all 0.3s var(--transition);
+        }
+
+        .project-card .project-link-card a:hover {
+            border-color: var(--color-text);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .project-card .project-link-card .link-card-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid var(--color-border);
+        }
+
+        .project-card .project-link-card .link-card-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .project-card .project-link-card .link-card-title {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .project-card .project-link-card .link-card-url {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+        }
+
+
+        .project-card .project-videos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card .project-videos video {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .project-card .project-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card .project-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .project-card .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card .stat-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .project-card .stat-label {
+            font-size: 0.7rem;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .skill-category h3 {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .skill-category ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .skill-category li {
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 10rem 4rem;
+        }
+
+        .contact h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .contact-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid var(--color-border);
+            transition: border-color 0.3s var(--transition);
+        }
+
+        .contact-links a:hover {
+            border-color: var(--color-hover);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--color-border);
+        }
+
+        footer span {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            cursor: pointer;
+        }
+
+        .lightbox-img {
+            position: relative;
+            max-width: 85vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 4px;
+            animation: lightboxFadeIn 0.25s ease;
+        }
+
+        .lightbox-video {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 4px;
+            animation: lightboxFadeIn 0.25s ease;
+        }
+
+        @keyframes lightboxFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 1;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .lightbox-close:hover { opacity: 1; }
+
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 1;
+            padding: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover { opacity: 1; }
+
+        .lightbox-prev { left: 1.5rem; }
+        .lightbox-next { right: 1.5rem; }
+
+        .project-card img {
+            cursor: pointer;
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav { padding: 1.5rem 2rem; }
+            section { padding: 6rem 2rem; }
+            .hero { padding: 0 2rem; flex-direction: column; gap: 2rem; }
+            .hero-content { max-width: 100%; }
+            .hero-image { width: 80%; max-width: 480px; }
+            .about { grid-template-columns: 1fr; gap: 3rem; }
+            .experience-item { grid-template-columns: 1fr; gap: 1rem; }
+            .projects-section-content { flex-direction: column; gap: 2rem; }
+            .projects-side-nav { position: static; flex-direction: row; writing-mode: horizontal-tb; }
+            .projects-side-nav a { writing-mode: horizontal-tb; padding: 0.5rem 1rem; }
+            .projects-side-nav .nav-line { width: 24px; height: 1px; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+            .scroll-indicator { left: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            nav .nav-links { gap: 1.5rem; }
+            nav .nav-links a { font-size: 0.75rem; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .skills-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">葛晴</div>
+        <ul class="nav-links">
+            <li><a href="#about">个人介绍</a></li>
+            <li><a href="#experience">工作履历</a></li>
+            <li><a href="#projects">项目案例</a></li>
+            <li><a href="#contact">联系方式</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-keyword-group">
+                <p class="kw-en">Key Word</p>
+                <p class="kw-zh">AI/商业化/营销/策划/美术/4A</p>
+            </div>
+            <div class="hero-keyword-group">
+                <p class="kw-en">Work History</p>
+                <p class="kw-zh">美图/小米/腾讯/京东/环时互动/阳狮</p>
+            </div>
+            <div class="hero-keyword-group">
+                <p class="kw-en">Experience</p>
+                <p class="kw-zh">互联网/工具APP/短视频/电商</p>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="素材/11.png" alt="葛晴">
+        </div>
+        <div class="scroll-indicator">Scroll to explore</div>
+    </section>
+
+    <section id="about">
+        <div class="section-header reveal">
+            <p class="section-label">01 — About</p>
+            <h2 class="section-title">葛晴</h2>
+        </div>
+        <div class="about reveal">
+            <div class="about-intro">
+                <p>11年互联网/营销行业经验，深耕商业化创意与整合营销，具备从策略洞察到创意落地的全链路操盘能力。</p>
+                <br>
+                <p>经验横跨互联网广告商业化、工具类产品、短视频产品、内容营销、游戏等多品类项目实战经验，擅长结合平台特色与行业需求产出差异化营销方案。</p>
+                <br>
+                <p>B端、AI生产平台产品及营销经验，擅长将平台及AI能力转化为可落地的商业化产品与创意玩法。</p>
+                <br>
+                <p>美术专业出身，兼具策划与设计能力，经验覆盖线上、线下及实体周边全场景。</p>
+                <br>
+                <p>出色的跨部门协作与沟通、资源整合能力，抗压及学习能力，能高效推动复杂项目落地。</p>
+            </div>
+            <div class="about-details">
+                <div class="about-detail-item">
+                    <p class="label">Education</p>
+                    <p class="value">四川美术学院 · 视觉传达设计 · 2015</p>
+                </div>
+                <div class="about-detail-item">
+                    <p class="label">Base</p>
+                    <p class="value">北京</p>
+                </div>
+                <div class="about-detail-item">
+                    <p class="label">Focus</p>
+                    <p class="value">商业化创意 · 整合营销 · AI创新产品</p>
+                </div>
+                <div class="about-detail-item">
+                    <p class="label">Experience</p>
+                    <p class="value">11年 互联网/营销行业</p>
+                </div>
+                <div class="about-detail-item">
+                    <p class="label">Other Tags</p>
+                    <p class="value">AOW持证潜水员，潜水经验100+ · 自研塔罗及占星 · 一个有意思的好人</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-header reveal">
+            <p class="section-label">02 — Experience</p>
+            <h2 class="section-title">Work History</h2>
+        </div>
+        <div class="experience-list">
+            <div class="experience-item reveal">
+                <div class="exp-year">2025.05 — 至今</div>
+                <div class="exp-content">
+                    <h3>美图</h3>
+                    <p class="exp-role">品牌广告部 · 创新策划经理</p>
+                    <ul class="exp-desc">
+                        <li>AI创新产品0-1落地：深度参与美图秀秀品牌广告创新业务，围绕行业需求与平台AI能力，主导美图AI广告产品的从0到1落地与商业化包装；个人全程负责「AI妙趣特效」「AI Live玩法」两款产品的产品化定义、方案产出与市场售卖，目前两款产品已成为美图秀秀AI商业化产品矩阵的核心组成，累计实现营收3417w+，服务多个行业客户。</li>
+                        <li>跨部门协作与项目推进：统筹用户运营、产品、销售等跨部门资源，保障创新产品及日常非标广告产品的顺畅交付与售卖，推动内部协作机制建立，提升团队执行效率。</li>
+                        <li>行业方案与销售赋能：主导行业解决方案及商业化自有IP孵化方案的撰写与内部培训，为销售团队提供系统化素材支持，提升一线商业化转化能力。</li>
+                        <li>市场声量与行业影响力建设：负责商业化市场业务，包括优质案例包装与报奖、标杆案例总结撰稿，从方法论层面沉淀可复用的经验框架，扩大品牌在行业内的影响力。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-item reveal">
+                <div class="exp-year">2021.05 — 2024.05</div>
+                <div class="exp-content">
+                    <h3>小米</h3>
+                    <p class="exp-role">互联网业务部 · 品牌广告创意营销经理</p>
+                    <ul class="exp-desc">
+                        <li>广告产品创新：围绕行业需求与平台特色，系统性产出创新产品形式，构思创意玩法通案，为品牌广告业务提供创新弹药。支持落地创新产品涵盖小爱同学、小米移动端、OTT、AIoT及其他资源。针对汽车、美妆、母婴、日化等行业产出定制创意方案，支持上线创新产品及项目数十个，创造营收千万级以上。</li>
+                        <li>品牌广告商业化支持：支持小米全场景智能营销（电视/AIoT/手机），提供创意、文案、方案产出及视觉把控，覆盖售前至执行全阶段。服务日化、服奢、快消、汽车等国内外知名品牌，斩获金投赏等赛事全场大奖、金奖数十项，创造营收亿元以上。项目类型涵盖AIoT智能场景营销、AI创新营销、整合营销等。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-item reveal">
+                <div class="exp-year">2020.04 — 2021.05</div>
+                <div class="exp-content">
+                    <h3>腾讯 PCG</h3>
+                    <p class="exp-role">微视市场部 · 资深创意经理</p>
+                    <ul class="exp-desc">
+                        <li>微视品牌综艺内容营销：结合站内资源与品牌诉求，产出整合创意追热方案，规划物料及传播节奏，负责美术监制。重点支持《创造营2020》《乘风破浪的姐姐》《明日之子乐团季》等头部项目。</li>
+                        <li>游戏项目创意营销：负责游戏联动微视的品牌创意规划与物料监制。重点项目涵盖王者荣耀、和平精英、使命召唤、穿越火线等。参与"微视电竞星战队"项目，负责传播节奏规划及物料监制；规划"出招吧！姐姐"明星线下扫楼活动，统筹整体方案与直播流程。</li>
+                        <li>微视品牌营销：负责品牌升级项目及节点热点创意传播内容规划与上线。参与品牌实物厂牌"微视脑洞实验室"从0到1搭建，推动近十款实物周边落地。CNY项目中负责春节物料整体内容对齐、节奏规划与美术监制。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-item reveal">
+                <div class="exp-year">2018.10 — 2020.04</div>
+                <div class="exp-content">
+                    <h3>京东</h3>
+                    <p class="exp-role">商城用户体验设计部 · 视觉设计师</p>
+                    <ul class="exp-desc">
+                        <li>羚珑平台TO B侧SNS工具搭建：结合节点与站内活动，面向商家产出测试类、游戏类等多类型SNS模板，个人负责对接交互、前端，完成洞察→创意→模板搭建→上传系统全流程，重点支持年货节、暑期、开学季等节点。</li>
+                        <li>自研小程序"壹赫兹"运营及创意产出：结合产品属性，打造节点亮点传播内容。代表作测试类H5「我可能是个艺术家」个人独立负责创意、文案、测试逻辑及大部分视觉产出，并拉通内部资源争取运营位。H5上线期间小程序峰值日均流量提升至10倍以上，结果页图片保存率33%，达行业较高水平。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-item reveal">
+                <div class="exp-year">2017.05 — 2018.10</div>
+                <div class="exp-content">
+                    <h3>环时互动</h3>
+                    <p class="exp-role">资深设计师</p>
+                    <ul class="exp-desc">
+                        <li>负责创意及视觉产出，并参与提案、比稿。主要服务客户：京东。参与京东618、双十一、开学季、年货节等多个战役的提案与执行。参与的京东电器「带电新人类」为年度爆款整合营销项目，项目整体曝光8100w+，跳转率16.5%，被多个自媒体账号自发传播。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-item reveal">
+                <div class="exp-year">2015.08 — 2017.05</div>
+                <div class="exp-content">
+                    <h3>阳狮集团 · 际恒公关</h3>
+                    <p class="exp-role">数字创意部 · 视觉设计师</p>
+                    <ul class="exp-desc">
+                        <li>负责创意及视觉产出，参与提案、比稿，主要服务客户华为。「P9看世界手机摄影大赛」为年度重点传播项目；节点病毒视频「华为P9——七夕完美约会秘笈」合作导演张大鹏，荣获十余项专业奖项。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header reveal">
+            <p class="section-label">03 — Selected Projects</p>
+            <h2 class="section-title">Featured Work</h2>
+        </div>
+        <div class="projects-section-content">
+            <nav class="projects-side-nav">
+                <a href="#projects-meitu" class="active">美图</a>
+                <div class="nav-line"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-line"></div>
+                <a href="#projects-xiaomi">小米</a>
+                <div class="nav-line"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-line"></div>
+                <a href="#projects-tencent">腾讯</a>
+                <div class="nav-line"></div>
+                <div class="nav-dot"></div>
+                <div class="nav-line"></div>
+                <a href="#projects-jd">京东</a>
+            </nav>
+            <div class="projects-grid">
+            <!-- Meitu Cases -->
+            <div id="projects-meitu"></div>
+            <div class="project-card reveal" style="display: flex; gap: 2rem; align-items: flex-start;">
+                <div style="flex: 0 0 45%; min-width: 0;">
+                    <img src="素材/美图总述/1.png" alt="美图平台AI能力矩阵思考" style="width: 100%; border-radius: 4px;">
+                    <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                </div>
+                <div style="flex: 1;">
+                    <p class="project-tag">平台能力 · 方法论</p>
+                    <h3>美图平台AI能力矩阵思考</h3>
+                    <p>基于对平台AI能力矩阵的系统梳理，建立品牌×美图×用户三方价值循环的商业化方法论：美图提供低门槛、高确定性的爆款AI玩法；品牌实现高效触达与心智植入；用户获得趣味体验与社交货币。三方价值协同，推动AI广告产品从单次投放向可持续的品牌资产沉淀升级。</p>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">AI图生图 · 营销案例</p>
+                <h3>王老吉 x 美图秀秀 CNY专项</h3>
+                <div class="project-images" style="display: flex; gap: 0.75rem;">
+                    <img src="素材/王老吉案例/3.png" alt="王老吉CNY案例图1" style="flex: 1; min-width: 0; object-fit: contain;">
+                    <img src="素材/王老吉案例/4.png" alt="王老吉CNY案例图2" style="flex: 1; min-width: 0; object-fit: contain;">
+                    <img src="素材/王老吉案例/5.png" alt="王老吉CNY案例图3" style="flex: 1; min-width: 0; object-fit: contain;">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.5rem;">点击图片查看大图</p>
+                <p>作为「AI 图生图」玩法"AI妙趣特效"的商业化核心负责人，主导该产品从0到1的完整落地，包含产品形态定义、玩法链路设计、点位沟通、到商业化包装，全程驱动跨部门协作推进上线。本次王老吉合作即为该产品首批规模化商业落地案例之一：洞察CNY节点路人及张凌赫粉丝心理，借势明星合拍玩法，以AI图生图技术放大UGC势能，将品牌理念自然融入用户社交行为。项目总曝光35.1亿，系列互动玩法总使用6658w。</p>
+                <div class="project-link-card">
+                    <a href="https://mp.weixin.qq.com/s/70KJfHckieWfu9u2Xld7HQ" target="_blank">
+                        <div class="link-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="link-card-text">
+                            <span class="link-card-title">王老吉 x 美图秀秀 CNY专项案例</span>
+                            <span class="link-card-url">点击查看完整案例 →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">35.1亿</span>
+                        <span class="stat-label">总曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">6658w</span>
+                        <span class="stat-label">互动使用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">AI图生视频 · 营销案例</p>
+                <h3>JORDAN x 美图秀秀 新品专项</h3>
+                <div class="project-videos">
+                    <video src="素材/jordan 案例/1.mp4" muted autoplay loop playsinline controls></video>
+                    <video src="素材/jordan 案例/2.mp4" muted autoplay loop playsinline controls></video>
+                    <video src="素材/jordan 案例/3.mov" muted autoplay loop playsinline controls></video>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击播放视频</p>
+                <p>深度参与「AI图生视频」产品"AI脑洞特效"能力的商业化落地与产品打磨，基于对该路径的理解，配合本次JORDAN新品专项完成创意转化：以"所见即所得"为策略核心，借助AI图生视频技术实现虚拟试穿与场景定制，将新品体验门槛降至最低，驱动用户主动生成与分享。项目总曝光1.1亿，互动玩法总使用116.5w。本次项目斩获金鼠标、虎啸等多个奖项。</p>
+                <div class="project-link-card">
+                    <a href="https://mp.weixin.qq.com/s/FkqzHoJsf-uH6ZSbZ_xvDA" target="_blank">
+                        <div class="link-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="link-card-text">
+                            <span class="link-card-title">JORDAN x 美图秀秀 新品专项案例</span>
+                            <span class="link-card-url">点击查看完整案例 →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">1.1亿</span>
+                        <span class="stat-label">总曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">116.5w</span>
+                        <span class="stat-label">互动使用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">AI多图生单图 · 营销案例</p>
+                <h3>兰蔻 x 美图秀秀 双面合拍专项</h3>
+                <div class="project-images" style="display: flex; gap: 0.75rem;">
+                    <img src="素材/兰蔻案例/3.png" alt="兰蔻案例图1" style="flex: 1; min-width: 0; height: 260px; object-fit: cover; object-position: left; border-radius: 4px;">
+                    <img src="素材/兰蔻案例/4.png" alt="兰蔻案例图2" style="flex: 1; min-width: 0; height: 260px; object-fit: cover; object-position: top; border-radius: 4px;">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p>深度参与「AI图生视频」产品"AI脑洞特效"能力的商业化落地与产品打磨，基于对该路径的理解，配合本次JORDAN新品专项完成创意转化：以"所见即所得"为策略核心，借助AI图生视频技术实现虚拟试穿与场景定制，将新品体验门槛降至最低，驱动用户主动生成与分享。项目总曝光1.1亿，互动玩法总使用116.5w。本次项目斩获金鼠标、虎啸等多个奖项。</p>
+                <div class="project-link-card">
+                    <a href="https://mp.weixin.qq.com/s/Td6VPxSIDiOzg-UsTugnPg" target="_blank">
+                        <div class="link-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="link-card-text">
+                            <span class="link-card-title">兰蔻 x 美图秀秀 双面合拍专项案例</span>
+                            <span class="link-card-url">点击查看完整案例 →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">1.7亿</span>
+                        <span class="stat-label">总曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">105w</span>
+                        <span class="stat-label">互动使用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">AI Agent · 营销案例</p>
+                <h3>麦当劳 x 美图 AI-Agent专项</h3>
+                <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; align-items: flex-start;">
+                    <video src="素材/麦当劳案例/1.mp4" muted autoplay loop playsinline controls style="flex: 1; min-width: 0; height: 280px; object-fit: cover; border-radius: 4px;"></video>
+                    <img src="素材/麦当劳案例/1.png" alt="麦当劳案例截图" style="flex: 1; min-width: 0; height: 280px; object-fit: cover; object-position: top; border-radius: 4px;">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -1rem; margin-bottom: 1.5rem;">点击查看完整内容</p>
+                <p>参与美图首个AI-Agent广告产品的商业化落地，负责与产品团队深度对接，推动Agent产品形态从技术能力向可售卖的广告产品转化，并完成本次麦当劳项目的落地执行：以对话式交互替代传统广告触达，让用户在自主生成定制画风、场景与剧情视频的过程中完成品牌深度沟通。项目总曝光1.3亿，系列互动玩法总使用89w。</p>
+                <div class="project-link-card">
+                    <a href="https://mp.weixin.qq.com/s/hXNG8gh137gkbnnKukercQ" target="_blank">
+                        <div class="link-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="link-card-text">
+                            <span class="link-card-title">麦当劳 x 美图 AI-Agent专项案例</span>
+                            <span class="link-card-url">点击查看完整案例 →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">1.3亿</span>
+                        <span class="stat-label">总曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">89w</span>
+                        <span class="stat-label">互动使用</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Xiaomi Cases -->
+            <div id="projects-xiaomi"></div>
+            <div class="project-card reveal">
+                <p class="project-tag">整合营销 · 小米</p>
+                <h3>欧莱雅男士 x 小米 "开学新装备，洗出少年感"整合营销项目</h3>
+                <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; align-items: flex-start;">
+                    <video src="素材/欧莱雅案例/1.mp4" muted autoplay loop playsinline controls style="flex: 1; min-width: 0; height: 280px; object-fit: cover; border-radius: 4px;"></video>
+                    <img src="素材/欧莱雅案例/Gemini_Generated_Image_1ornlc1ornlc1orn.png" alt="欧莱雅案例图" style="flex: 1; min-width: 0; height: 280px; object-fit: contain; border-radius: 4px;">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -1rem; margin-bottom: 1.5rem;">点击查看完整内容</p>
+                <div class="project-link-card">
+                    <a href="https://mp.weixin.qq.com/s/jtBmoj7emvZJ7NRL5B8wYg" target="_blank">
+                        <div class="link-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="link-card-text">
+                            <span class="link-card-title">欧莱雅男士x小米营销："破圈"走近校园TA</span>
+                            <span class="link-card-url">点击查看完整案例 →</span>
+                        </div>
+                    </a>
+                </div>
+                <p>营销背景：欧莱雅男士开学季传播，以创新品牌联合为核心命题，希望借力小米生态圈层影响力，打造具有破圈潜力的跨界整合营销。<br><br>执行方案：以数据驱动选品决策，锁定高校人群偏好度最高的小米手环与欧莱雅产品打造跨界礼盒，并以产品联名为支点，撬动京东官方旗舰店超级品牌日资源，同步联合定制TVC。传播侧打通小米之家线下渠道、社媒生态、电商导流及线上生态资源，构建全域曝光矩阵。<br><br>活动总曝光2.2亿+，完成率112%。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">2.2亿+</span>
+                        <span class="stat-label">总曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">112%</span>
+                        <span class="stat-label">完成率</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">AIoT营销 · 小米</p>
+                <h3>太太乐 x 小米 "乐享智能新食代"AIoT营销项目</h3>
+                <div style="display: flex; gap: 1rem; align-items: stretch; height: 280px;">
+                    <video src="素材/太太乐案例/1780722991582.MP4" muted autoplay loop playsinline controls style="flex: 1; object-fit: contain;"></video>
+                    <img src="素材/太太乐案例/微信图片_2026-06-07_232006_654.jpg" style="flex: 1; min-width: 0; object-fit: contain;">
+                </div>
+                <p>营销背景：太太乐空气炸锅系列调味品新品上市，借助小米AIoT生态精准触达年轻家庭人群，探索品牌与智能家居场景的深度融合营销。<br><br>执行方案：以厨几空气炸锅为媒介，打造"王炸CP"，并以定制智能菜谱实现产品场景化植入，深度整合厨几APP及小程序系统级资源，实现曝光4989w+。并以创意撬动客户预算，产出定制TVC投放小米OTT创意开机，构建大屏全链路营销闭环，实际曝光3275w+，该TVC后续被客户持续投放分众等媒体。<br><br>合作模式被客户复用，两次合作累计下单金额500w+，实现品效双赢。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">500w+</span>
+                        <span class="stat-label">累计下单</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">品效双赢</span>
+                        <span class="stat-label">合作模式复用</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Tencent Cases -->
+            <div id="projects-tencent"></div>
+            <div class="project-card reveal">
+                <p class="project-tag">联合营销 · 腾讯</p>
+                <h3>乘风破浪的姐姐 x 时尚COSMO x 王者荣耀 联合营销项目</h3>
+                <div style="display: flex; gap: 0.75rem; align-items: stretch; height: 260px;">
+                    <video src="素材/乘风破浪的姐姐/Hi！时尚COSMO 2020.mp4" muted autoplay loop playsinline style="flex: 1; min-width: 0; height: 100%; object-fit: cover;"></video>
+                    <img src="素材/乘风破浪的姐姐/1.jpg" alt="乘风破浪的姐姐案例图1" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;">
+                    <img src="素材/乘风破浪的姐姐/2.jpg" alt="乘风破浪的姐姐案例图2" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;">
+                    <img src="素材/乘风破浪的姐姐/3.jpg" alt="乘风破浪的姐姐案例图3" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;">
+                    <img src="素材/乘风破浪的姐姐/4.jpg" alt="乘风破浪的姐姐案例图4" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击查看完整内容</p>
+                <p>首创0成本四大IP联动模式——腾讯微视×时尚COSMO×王者荣耀×乘风破浪的姐姐 跨圈协同，成功实现市场项目首次商业化落地，为市场侧提供了以创意替代预算的跨界合作新范式。<br><br>传播侧覆盖微博、虎扑、豆瓣、小红书、芒果TV、朋友圈广告等全渠道矩阵，总曝光1.76亿+，3小时持续登微博热搜，实现跨圈层持续渗透。<br><br>内容深度绑定端内生态，"微视变身挂件"视频端内播放量1.2亿+，带动相关挂件/模板发布量181.6w，发布人数100w+，用户自发参与完成二次传播扩散。<br><br>个人主要负责创意产出与视觉监制。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">1.76亿+</span>
+                        <span class="stat-label">总曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">3小时</span>
+                        <span class="stat-label">持续登微博热搜</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">电竞营销 · 腾讯</p>
+                <h3>微视电竞星战队 x 王者荣耀 联合营销项目</h3>
+                <div class="project-images-row">
+                    <img src="素材/微视电竞行战队/1.jpg" alt="微视电竞星战队图1">
+                    <img src="素材/微视电竞行战队/2.jpg" alt="微视电竞星战队图2">
+                    <img src="素材/微视电竞行战队/3.jpg" alt="微视电竞星战队图3">
+                    <img src="素材/微视电竞行战队/4.jpg" alt="微视电竞星战队图4">
+                    <img src="素材/微视电竞行战队/5.jpeg" alt="微视电竞星战队图5">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p>行业首个全明星王者电竞女子团队，以内容破圈为核心策略，联动金晨、李斯丹妮、孟佳、郁可唯、张含韵6位顶流艺人，打通赛事出席、主题曲演唱、直播、线下扫楼等全场景内容链路，开创电竞×娱乐×短视频平台联动的新玩法。<br><br>7天集中引爆：10次微博热搜，相关话题阅读量25.6亿+，话题讨论量127.5w+，端内相关短视频VV5087万，实现现象级传播破圈。<br><br>个人主要负责整体宣发节奏规划、物料监制与分发，及线下活动全流程规划、执行。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">25.6亿+</span>
+                        <span class="stat-label">话题阅读量</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">10次</span>
+                        <span class="stat-label">微博热搜</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">综艺营销 · 腾讯</p>
+                <h3>创造营2020</h3>
+                <div class="project-images-grid-4">
+                    <img src="素材/创造营 2020/1.jpg" alt="创造营2020图1">
+                    <img src="素材/创造营 2020/2.jpg" alt="创造营2020图2">
+                    <img src="素材/创造营 2020/3.jpg" alt="创造营2020图3">
+                    <img src="素材/创造营 2020/4.jpg" alt="创造营2020图4">
+                    <img src="素材/创造营 2020/5.png" alt="创造营2020图5">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p>数据驱动策略方向，规划泛追热及粉丝深度运营玩法，精准切入圈层传播，热点物料微博阅读量1000w+，互动量10w+，在多个粉丝社群形成自发扩散。<br><br>统筹运营侧协作，系统性产出整体传播节奏，并统一视觉输出体系、撰写传播文案，输出基于节目热点的市场侧创意产出。<br><br>《创造营2020》官微内容产出，整体阅读量1.3亿+，互动量204万+。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">1.3亿+</span>
+                        <span class="stat-label">官微阅读量</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">204万+</span>
+                        <span class="stat-label">互动量</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">综艺营销 · 腾讯</p>
+                <h3>明日之子乐团季</h3>
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                    <img src="素材/明日之子/new1.jpg" alt="明日之子乐团季图1" style="flex: 1; min-width: 0; width: 100%; height: 260px; object-fit: cover; object-position: top; border-radius: 4px;">
+                    <img src="素材/明日之子/new2.jpg" alt="明日之子乐团季图2" style="flex: 1; min-width: 0; width: 100%; height: 260px; object-fit: cover; object-position: top; border-radius: 4px;">
+                    <img src="素材/明日之子/1.jpg" alt="明日之子乐团季图3" style="flex: 1; min-width: 0; width: 100%; height: 260px; object-fit: contain; border-radius: 4px;">
+                    <img src="素材/明日之子/2.jpg" alt="明日之子乐团季图4" style="flex: 1; min-width: 0; width: 100%; height: 260px; object-fit: contain; border-radius: 4px;">
+                    <img src="素材/明日之子/3.png" alt="明日之子乐团季图5" style="flex: 1; min-width: 0; width: 100%; height: 260px; object-fit: contain; border-radius: 4px;">
+                    <img src="素材/明日之子/new3.jpg" alt="明日之子乐团季图6" style="flex: 1; min-width: 0; width: 100%; height: 260px; object-fit: contain; border-radius: 4px;">
+                    <img src="素材/明日之子/new4.jpg" alt="明日之子乐团季图7" style="flex: 1; min-width: 0; width: 100%; height: 260px; object-fit: contain; border-radius: 4px;">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p>统筹整体传播节奏与视觉品质把控，建立物料规范与统一视觉体系，强化微视品牌感知。<br><br>深度参与直播脚本创意规划，以热点内容驱动粉丝互动；「明子粉丝毕业大考」转发量5.6w，位列同类物料较高水平。端内多形态物料累计发博5000+篇，播放量1100w+，互动量破百万，并激发大量用户二创产出。<br><br>策划"同桌时间"直播，话题0成本登上微博热搜，为微视直播首次自然热搜。<br><br>《明日之子乐团季》端内物料播放量1100w+，衍生大量二创。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">1100w+</span>
+                        <span class="stat-label">端内播放量</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">百万+</span>
+                        <span class="stat-label">互动量</span>
+                    </div>
+                </div>
+            </div>
+            <!-- JD Cases -->
+            <div id="projects-jd"></div>
+            <div class="project-card reveal">
+                <p class="project-tag">智能平台 · 京东</p>
+                <h3>羚珑智能平台 SNS模板创意产出</h3>
+                <div class="project-images-grid-4">
+                    <img src="素材/羚珑/1.png" alt="羚珑平台图1">
+                    <img src="素材/羚珑/2.png" alt="羚珑平台图2">
+                    <img src="素材/羚珑/3.png" alt="羚珑平台图3">
+                    <img src="素材/羚珑/4.png" alt="羚珑平台图4">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p>主导羚珑系统首款互动营销工具的游戏类模板创意方向，以"互动+奖励"机制重构商家营销玩法，通过组件化、模板化设计大幅降低开发与使用门槛，将创意能力系统性转化为可规模化复用的商业工具。<br><br>结合节日与营销热点持续产出创意玩法与视觉方案，并监测数据反哺迭代，传播侧，输出传播稿件，并进行渠道分发。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">系统首款</span>
+                        <span class="stat-label">互动营销工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">规模化</span>
+                        <span class="stat-label">模板复用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">H5互动 · 京东</p>
+                <h3>H5"我可能是个艺术家"</h3>
+                <div class="project-images-row-auto">
+                    <img src="素材/H5 我可能是个艺术家/1.png" alt="我可能是个艺术家图1">
+                    <img src="素材/H5 我可能是个艺术家/2.jpg" alt="我可能是个艺术家图2">
+                    <img src="素材/H5 我可能是个艺术家/3.png" alt="我可能是个艺术家图3">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p>项目背景："壹赫兹"是团队自研的、完全由设计师团队产出的购物种草推荐类小程序。本项目以西方美术史为创意背书，构建测试型互动链路，为用户匹配专属艺术流派标签并精准推荐相关商品，将文化内容与电商转化深度结合。<br><br>个人独立完成创意策划、交互逻辑、文案撰写及部分视觉产出，并拉通内部运营，争取核心资源位。H5上线期间小程序峰值日均流量提升10倍以上，结果页图片保存率33%，达行业较高水平。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">10倍+</span>
+                        <span class="stat-label">日均流量提升</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">33%</span>
+                        <span class="stat-label">图片保存率</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <p class="project-tag">H5互动 · 京东/环时互动</p>
+                <h3>京东电器618 "带电新人类"</h3>
+                <div class="project-images" style="grid-template-columns: 1fr;">
+                    <img src="素材/京东 618/1.jpg" alt="京东618带电新人类">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <div class="project-link-card">
+                    <a href="https://www.digitaling.com/projects/40578.html" target="_blank">
+                        <div class="link-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="link-card-text">
+                            <span class="link-card-title">京东电器618 "带电新人类" 完整案例</span>
+                            <span class="link-card-url">点击查看完整案例 →</span>
+                        </div>
+                    </a>
+                </div>
+                <p>京东十一家电品线大促整合传播案的核心创意载体，以挖掘SKU商品反差卖点为策略支点，用趣味的文案语言重新定义产品与用户的情感连接。<br><br>项目成为年度爆款H5，整体曝光8100w+，跳转率16.5%，行业声量极高。<br><br>负责前期创意产出与画面设计，并深度参与文案撰写。被多个自媒体账号自发传播。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">8100w+</span>
+                        <span class="stat-label">整体曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">16.5%</span>
+                        <span class="stat-label">跳转率</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="reveal">Let's Create<br>Something Together</h2>
+        <div class="contact-links reveal">
+            <a href="mailto:geqing023@qq.com">geqing023@qq.com</a>
+            <a href="tel:18664360425">186 6436 0425</a>
+        </div>
+    </section>
+
+    <footer>
+        <span>葛晴 &copy; 2025</span>
+        <span>Creative Marketing & Strategy</span>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-backdrop"></div>
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">&#8249;</button>
+        <button class="lightbox-next">&#8250;</button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="" style="display: none;">
+        <video class="lightbox-video" id="lightbox-video" src="" controls style="display: none;"></video>
+    </div>
+
+    <script>
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // Smooth parallax on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.15}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+            }
+        });
+
+        // Projects side nav active state
+        const sideNavLinks = document.querySelectorAll('.projects-side-nav a');
+        const sectionAnchors = ['projects-meitu', 'projects-xiaomi', 'projects-tencent', 'projects-jd'];
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    sideNavLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.projects-side-nav a[href="#${entry.target.id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }, { threshold: 0, rootMargin: '-20% 0px -60% 0px' });
+
+        sectionAnchors.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) sectionObserver.observe(el);
+        });
+
+        // Lightbox - supports both images and videos
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxVideo = document.getElementById('lightbox-video');
+        const allMedia = Array.from(document.querySelectorAll('.project-card img, .project-card video'));
+        let currentIndex = 0;
+        let currentType = 'image';
+
+        allMedia.forEach((el, index) => {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', () => {
+                currentIndex = index;
+                openLightbox(el);
+            });
+        });
+
+        function openLightbox(el) {
+            if (el.tagName === 'VIDEO') {
+                currentType = 'video';
+                lightboxImg.style.display = 'none';
+                lightboxVideo.style.display = '';
+                lightboxVideo.src = el.querySelector('source') ? el.querySelector('source').src : el.src;
+                lightboxVideo.currentTime = 0;
+                lightboxVideo.play();
+            } else {
+                currentType = 'image';
+                lightboxVideo.style.display = 'none';
+                lightboxVideo.pause();
+                lightboxImg.style.display = '';
+                lightboxImg.src = el.src;
+            }
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            if (currentType === 'video') {
+                lightboxVideo.pause();
+            }
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + allMedia.length) % allMedia.length;
+            openLightbox(allMedia[currentIndex]);
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % allMedia.length;
+            openLightbox(allMedia[currentIndex]);
+        }
+
+        document.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+        document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        document.querySelector('.lightbox-prev').addEventListener('click', showPrev);
+        document.querySelector('.lightbox-next').addEventListener('click', showNext);
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
+    </script>
+</body>
+</html>
