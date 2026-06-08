@@ -638,16 +638,6 @@
             color: var(--color-text);
             background: var(--color-bg);
         }
-        .toggle-icon {
-            display: inline-block;
-            transition: transform 0.3s ease;
-            font-weight: 300;
-            font-size: 1.2rem;
-            margin-right: 0.25rem;
-        }
-        .more-cases-btn.open .toggle-icon {
-            transform: rotate(45deg);
-        }
         .hidden-cases {
             margin-top: 1.5rem;
             animation: fadeSlideIn 0.4s ease;
@@ -1175,7 +1165,7 @@
             <!-- 查看更多案例 -->
             <div class="more-cases-wrapper">
                 <button class="more-cases-btn" onclick="toggleMoreCases(this)">
-                    <span class="toggle-icon">+</span> 点击查看更多案例
+                    ///////点击查看更多案例///////
                 </button>
                 <div class="hidden-cases" style="display: none;">
             <div class="project-card reveal">
@@ -1345,7 +1335,6 @@
                 </div>
             </div>
             <div class="project-card reveal">
-            <div class="project-card reveal">
                 <p class="project-tag">综艺营销 · 腾讯</p>
                 <h3>创造营2020</h3>
                 <div class="project-images-grid-4">
@@ -1372,7 +1361,7 @@
             <!-- 查看更多案例 -->
             <div class="more-cases-wrapper">
                 <button class="more-cases-btn" onclick="toggleMoreCases(this)">
-                    <span class="toggle-icon">+</span> 点击查看更多案例
+                    ///////点击查看更多案例///////
                 </button>
                 <div class="hidden-cases" style="display: none;">
             <div class="project-card reveal">
@@ -1398,7 +1387,6 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card reveal">
 
             <div class="project-card reveal">
                 <p class="project-tag">综艺营销 · 腾讯</p>
@@ -1643,15 +1631,14 @@
         function toggleMoreCases(btn) {
             const wrapper = btn.parentElement;
             const hidden = wrapper.querySelector('.hidden-cases');
-            const icon = btn.querySelector('.toggle-icon');
             if (hidden.style.display === 'none') {
                 hidden.style.display = 'block';
+                btn.textContent = '///////点击收起案例///////';
                 btn.classList.add('open');
-                icon.textContent = '−';
             } else {
                 hidden.style.display = 'none';
+                btn.textContent = '///////点击查看更多案例///////';
                 btn.classList.remove('open');
-                icon.textContent = '+';
             }
         }
     </script>
