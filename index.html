@@ -104,6 +104,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .hero-image:hover::after {
+            content: '点击可查看大图';
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 10;
         }
 
         .hero-image img {
@@ -185,28 +203,6 @@
 
         @keyframes fadeIn {
             to { opacity: 1; }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 4rem;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            opacity: 0;
-            animation: fadeIn 1s var(--transition) 1s forwards;
-        }
-
-        .scroll-indicator::before {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background: var(--color-text-secondary);
         }
 
         /* Section Styles */
@@ -841,7 +837,6 @@
             .projects-side-nav a { writing-mode: horizontal-tb; padding: 0.5rem 1rem; }
             .projects-side-nav .nav-line { width: 24px; height: 1px; }
             .skills-grid { grid-template-columns: 1fr 1fr; }
-            .scroll-indicator { left: 2rem; }
         }
 
         @media (max-width: 768px) {
@@ -901,7 +896,6 @@
             .project-card .project-link-card .link-card-title { font-size: 0.8rem; }
             .project-card .project-link-card .link-card-icon { width: 32px; height: 32px; }
             .project-card .project-link-card .link-card-icon svg { width: 18px; height: 18px; }
-            .scroll-indicator { left: 1rem; font-size: 0.7rem; }
             .about-img img { max-width: 100%; }
             .experience-company { font-size: 0.9rem; }
         }
@@ -936,7 +930,6 @@
         <div class="hero-image">
             <img src="素材/11.webp" alt="葛晴" fetchpriority="high" loading="eager">
         </div>
-        <div class="scroll-indicator">Scroll to explore</div>
     </section>
 
     <section id="about">
@@ -1501,7 +1494,7 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="reveal">Let's Create<br>Something Together</h2>
+        <h2 class="reveal">Let's<br>面试</h2>
         <div class="contact-links reveal">
             <a href="mailto:geqing023@qq.com">geqing023@qq.com</a>
             <a href="tel:18664360425">186 6436 0425</a>
