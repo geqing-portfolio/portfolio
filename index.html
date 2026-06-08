@@ -550,6 +550,9 @@
             color: var(--color-text-secondary);
         }
 
+        /* Hide mobile-only UI on desktop */
+        .mo-only { display: none; }
+
 
         .project-card .project-videos {
             display: grid;
@@ -871,24 +874,96 @@
         }
 
         @media (max-width: 480px) {
-            html { font-size: 13px; }
+            html { font-size: 14px; }
             nav { padding: 0.75rem 1rem; flex-wrap: wrap; }
             nav .logo { font-size: 1.2rem; }
             nav .nav-links { gap: 0.6rem; flex-wrap: wrap; }
-            nav .nav-links a { font-size: 0.6rem; }
-            section { padding: 3.5rem 1rem; }
-            .hero { min-height: 90vh; padding: 4rem 1rem 2rem; }
-            .hero-image { max-width: 240px; }
-            .section-title { font-size: 1.6rem; }
+            nav .nav-links a { font-size: 0.65rem; }
+            section { padding: 2.5rem 0.75rem; }
+            .hero { min-height: 100vh; padding: 3rem 0.75rem 1.5rem; gap: 1.5rem; }
+            .hero-content { padding-top: 0.5rem; }
+            .hero-image { max-width: 100%; width: 100%; }
+            .hero-keyword-group { margin-bottom: 1.2rem; }
+            .hero-keyword-group .kw-en { font-size: clamp(2.2rem, 10vw, 3rem); }
+            .hero-keyword-group .kw-zh { font-size: clamp(0.9rem, 4vw, 1.2rem); }
+            .section-title { font-size: 1.8rem; }
+            /* Side nav - horizontal compact */
+            .projects-side-nav { justify-content: center; gap: 0.4rem; width: 100%; min-width: 0; max-width: none; }
+            .projects-side-nav a { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
+            .projects-side-nav .nav-line { width: 12px; height: 1px; }
+            .projects-side-nav .nav-dot { width: 4px; height: 4px; }
+            /* Project cards - tighter spacing */
+            .projects-grid { gap: 1.2rem; }
+            .project-card { margin-bottom: 1.2rem; padding: 1.5rem; }
             .project-card h3 { font-size: 1rem; }
-            .project-card { margin-bottom: 3rem; }
             .project-card .project-images-row { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
             .project-card .project-images-row img { height: 100px; }
             .project-card .project-images-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
             .project-card .project-images-grid-4 img { aspect-ratio: 3/4; }
             .project-card .project-images-row-auto { height: auto; flex-direction: column; gap: 0.5rem; }
             .project-card .project-images-row-auto img { height: auto; max-height: 180px; flex: none; width: 100%; }
-            .project-card .project-images img { max-height: 200px; flex: 1 1 100%; }
+            .project-card .project-images img { max-height: 200px; flex: 1 1 100%; height: 200px; }
+            /* 480px: prevent images in column-mode flex from collapsing to 0 */
+            .project-card [style*="display: flex"] img,
+            .project-card [style*="display: flex"] video {
+                width: 100% !important;
+                min-height: 120px;
+                flex: auto !important;
+            }
+            /* Horizontal scroll containers */
+            .scroll-row {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                gap: 0.5rem;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                height: auto !important;
+                align-items: flex-start !important;
+                margin-bottom: 0.75rem !important;
+            }
+            .scroll-row > * {
+                flex-shrink: 0;
+                scroll-snap-align: start;
+            }
+            /* Video-first: video ~90vw natural ratio, images ~45vw */
+            .scroll-video video {
+                width: 90vw;
+                height: auto !important;
+                max-height: 55vh;
+                object-fit: contain !important;
+                flex: none !important;
+                min-width: 0;
+            }
+            .scroll-video img {
+                width: 45vw;
+                height: auto !important;
+                max-height: 40vh;
+                object-fit: contain !important;
+                flex: none !important;
+                min-width: 0;
+            }
+            /* Grid cards: each image ~45vw */
+            .scroll-grid {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                gap: 0.5rem;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
+            .scroll-grid img {
+                width: 45vw !important;
+                height: auto !important;
+                max-height: 40vh;
+                object-fit: contain;
+                flex-shrink: 0;
+                scroll-snap-align: start;
+                aspect-ratio: auto !important;
+            }
+            /* Show mobile-only UI */
+            .mo-only { display: inline; }
             .project-card .project-stats { gap: 0.75rem; }
             .project-card .stat-value { font-size: 1.3rem; }
             .project-card .stat-label { font-size: 0.65rem; }
@@ -1253,11 +1328,11 @@
             <div class="project-card reveal">
                 <p class="project-tag">整合营销 · 小米</p>
                 <h3>欧莱雅男士 x 小米 "开学新装备，洗出少年感"整合营销项目</h3>
-                <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; align-items: flex-start;">
+                <div class="scroll-row scroll-video" style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; align-items: flex-start;">
                     <video src="素材/欧莱雅案例/1.mp4" muted autoplay loop playsinline controls style="flex: 1; min-width: 0; height: 280px; object-fit: cover; border-radius: 4px;"></video>
                     <img src="素材/欧莱雅案例/Gemini_Generated_Image_1ornlc1ornlc1orn.webp" alt="欧莱雅案例图" style="flex: 1; min-width: 0; height: 280px; object-fit: contain; border-radius: 4px;" loading="lazy" decoding="async">
                 </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -1rem; margin-bottom: 1.5rem;">点击查看完整内容</p>
+                <p class="scroll-hint" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -1rem; margin-bottom: 1.5rem;">点击查看完整内容 · <span class="mo-only">滑动展示更多</span></p>
                 <div class="project-link-card">
                     <a href="https://mp.weixin.qq.com/s/jtBmoj7emvZJ7NRL5B8wYg" target="_blank">
                         <div class="link-card-icon">
@@ -1288,10 +1363,11 @@
             <div class="project-card reveal">
                 <p class="project-tag">AIoT营销 · 小米</p>
                 <h3>太太乐 x 小米 "乐享智能新食代"AIoT营销项目</h3>
-                <div style="display: flex; gap: 1rem; align-items: stretch; height: 280px;">
+                <div class="scroll-row scroll-video" style="display: flex; gap: 1rem; align-items: stretch; height: 280px;">
                     <video src="素材/太太乐案例/1780722991582.MP4" muted autoplay loop playsinline controls style="flex: 1; object-fit: contain;"></video>
                     <img src="素材/太太乐案例/微信图片_2026-06-07_232006_654.webp" style="flex: 1; min-width: 0; object-fit: contain;" loading="lazy" decoding="async">
                 </div>
+                <p class="scroll-hint" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -1rem; margin-bottom: 1.5rem;">点击查看完整内容 · <span class="mo-only">滑动展示更多</span></p>
                 <p>营销背景：太太乐空气炸锅系列调味品新品上市，借助小米AIoT生态精准触达年轻家庭人群，探索品牌与智能家居场景的深度融合营销。<br><br>执行方案：以厨几空气炸锅为媒介，打造"王炸CP"，并以定制智能菜谱实现产品场景化植入，深度整合厨几APP及小程序系统级资源，实现曝光4989w+。并以创意撬动客户预算，产出定制TVC投放小米OTT创意开机，构建大屏全链路营销闭环，实际曝光3275w+，该TVC后续被客户持续投放分众等媒体。<br><br>合作模式被客户复用，两次合作累计下单金额500w+，实现品效双赢。</p>
                 <div class="project-stats">
                     <div class="stat">
@@ -1309,14 +1385,14 @@
             <div class="project-card reveal">
                 <p class="project-tag">联合营销 · 腾讯</p>
                 <h3>乘风破浪的姐姐 x 时尚COSMO x 王者荣耀 联合营销项目</h3>
-                <div style="display: flex; gap: 0.75rem; align-items: stretch; height: 260px;">
+                <div class="scroll-row scroll-video" style="display: flex; gap: 0.75rem; align-items: stretch; height: 260px;">
                     <video src="素材/乘风破浪的姐姐/Hi！时尚COSMO 2020.mp4" muted autoplay loop playsinline style="flex: 1; min-width: 0; height: 100%; object-fit: cover;"></video>
                     <img src="素材/乘风破浪的姐姐/1.webp" alt="乘风破浪的姐姐案例图1" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     <img src="素材/乘风破浪的姐姐/2.webp" alt="乘风破浪的姐姐案例图2" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     <img src="素材/乘风破浪的姐姐/3.webp" alt="乘风破浪的姐姐案例图3" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     <img src="素材/乘风破浪的姐姐/4.webp" alt="乘风破浪的姐姐案例图4" style="flex: 1; min-width: 0; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                 </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击查看完整内容</p>
+                <p class="scroll-hint" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击查看完整内容 · <span class="mo-only">滑动展示更多</span></p>
                 <p>首创0成本四大IP联动模式——腾讯微视×时尚COSMO×王者荣耀×乘风破浪的姐姐 跨圈协同，成功实现市场项目首次商业化落地，为市场侧提供了以创意替代预算的跨界合作新范式。<br><br>传播侧覆盖微博、虎扑、豆瓣、小红书、芒果TV、朋友圈广告等全渠道矩阵，总曝光1.76亿+，3小时持续登微博热搜，实现跨圈层持续渗透。<br><br>内容深度绑定端内生态，"微视变身挂件"视频端内播放量1.2亿+，带动相关挂件/模板发布量181.6w，发布人数100w+，用户自发参与完成二次传播扩散。<br><br>个人主要负责创意产出与视觉监制。</p>
                 <div class="project-stats">
                     <div class="stat">
@@ -1332,14 +1408,14 @@
             <div class="project-card reveal">
                 <p class="project-tag">综艺营销 · 腾讯</p>
                 <h3>创造营2020</h3>
-                <div class="project-images-grid-4">
+                <div class="scroll-grid project-images-grid-4">
                     <img src="素材/创造营 2020/1.webp" alt="创造营2020图1" loading="lazy" decoding="async">
                     <img src="素材/创造营 2020/2.webp" alt="创造营2020图2" loading="lazy" decoding="async">
                     <img src="素材/创造营 2020/3.webp" alt="创造营2020图3" loading="lazy" decoding="async">
                     <img src="素材/创造营 2020/4.webp" alt="创造营2020图4" loading="lazy" decoding="async">
                     <img src="素材/创造营 2020/5.webp" alt="创造营2020图5" loading="lazy" decoding="async">
                 </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p class="scroll-hint" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图 · <span class="mo-only">滑动展示更多</span></p>
                 <p>数据驱动策略方向，规划泛追热及粉丝深度运营玩法，精准切入圈层传播，热点物料微博阅读量1000w+，互动量10w+，在多个粉丝社群形成自发扩散。<br><br>统筹运营侧协作，系统性产出整体传播节奏，并统一视觉输出体系、撰写传播文案，输出基于节目热点的市场侧创意产出。<br><br>《创造营2020》官微内容产出，整体阅读量1.3亿+，互动量204万+。</p>
                 <div class="project-stats">
                     <div class="stat">
@@ -1415,13 +1491,13 @@
             <div class="project-card reveal">
                 <p class="project-tag">智能平台 · 京东</p>
                 <h3>羚珑智能平台 SNS模板创意产出</h3>
-                <div class="project-images-grid-4">
+                <div class="scroll-grid project-images-grid-4">
                     <img src="素材/羚珑/1.webp" alt="羚珑平台图1" loading="lazy" decoding="async">
                     <img src="素材/羚珑/2.webp" alt="羚珑平台图2" loading="lazy" decoding="async">
                     <img src="素材/羚珑/3.webp" alt="羚珑平台图3" loading="lazy" decoding="async">
                     <img src="素材/羚珑/4.webp" alt="羚珑平台图4" loading="lazy" decoding="async">
                 </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p class="scroll-hint" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图 · <span class="mo-only">滑动展示更多</span></p>
                 <p>主导羚珑系统首款互动营销工具的游戏类模板创意方向，以"互动+奖励"机制重构商家营销玩法，通过组件化、模板化设计大幅降低开发与使用门槛，将创意能力系统性转化为可规模化复用的商业工具。<br><br>结合节日与营销热点持续产出创意玩法与视觉方案，并监测数据反哺迭代，传播侧，输出传播稿件，并进行渠道分发。</p>
                 <div class="project-stats">
                     <div class="stat">
@@ -1437,12 +1513,12 @@
             <div class="project-card reveal">
                 <p class="project-tag">H5互动 · 京东</p>
                 <h3>H5"我可能是个艺术家"</h3>
-                <div class="project-images-row-auto">
+                <div class="scroll-grid project-images-row-auto">
                     <img src="素材/H5 我可能是个艺术家/1.webp" alt="我可能是个艺术家图1" loading="lazy" decoding="async">
                     <img src="素材/H5 我可能是个艺术家/2.webp" alt="我可能是个艺术家图2" loading="lazy" decoding="async">
                     <img src="素材/H5 我可能是个艺术家/3.webp" alt="我可能是个艺术家图3" loading="lazy" decoding="async">
                 </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p class="scroll-hint" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图 · <span class="mo-only">滑动展示更多</span></p>
                 <p>项目背景："壹赫兹"是团队自研的、完全由设计师团队产出的购物种草推荐类小程序。本项目以西方美术史为创意背书，构建测试型互动链路，为用户匹配专属艺术流派标签并精准推荐相关商品，将文化内容与电商转化深度结合。<br><br>个人独立完成创意策划、交互逻辑、文案撰写及部分视觉产出，并拉通内部运营，争取核心资源位。H5上线期间小程序峰值日均流量提升10倍以上，结果页图片保存率33%，达行业较高水平。</p>
                 <div class="project-stats">
                     <div class="stat">
@@ -1525,7 +1601,7 @@
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px 50px 0px' });
 
         reveals.forEach(el => observer.observe(el));
 
