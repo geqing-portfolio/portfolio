@@ -615,6 +615,48 @@
             letter-spacing: 0.05em;
         }
 
+        /* 查看更多案例 Toggle */
+        .more-cases-wrapper {
+            margin-top: 2rem;
+        }
+        .more-cases-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-surface);
+            border: 1px dashed var(--color-border);
+            border-radius: 8px;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .more-cases-btn:hover {
+            border-color: var(--color-primary);
+            color: var(--color-text);
+            background: var(--color-bg);
+        }
+        .toggle-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-right: 0.25rem;
+        }
+        .more-cases-btn.open .toggle-icon {
+            transform: rotate(45deg);
+        }
+        .hidden-cases {
+            margin-top: 1.5rem;
+            animation: fadeSlideIn 0.4s ease;
+        }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
@@ -1061,17 +1103,16 @@
                 </div>
             </div>
             <div class="project-card reveal">
-                <p class="project-tag">AI图生图 · 营销案例</p>
-                <h3>王老吉 x 美图秀秀 CNY专项</h3>
-                <div class="project-images" style="display: flex; gap: 0.75rem;">
-                    <img src="素材/王老吉案例/3.webp" alt="王老吉CNY案例图1" style="flex: 1; min-width: 0; object-fit: contain;" loading="lazy" decoding="async">
-                    <img src="素材/王老吉案例/4.webp" alt="王老吉CNY案例图2" style="flex: 1; min-width: 0; object-fit: contain;" loading="lazy" decoding="async">
-                    <img src="素材/王老吉案例/5.webp" alt="王老吉CNY案例图3" style="flex: 1; min-width: 0; object-fit: contain;" loading="lazy" decoding="async">
+                <p class="project-tag">AI Agent · 营销案例</p>
+                <h3>麦当劳 x 美图 AI-Agent专项</h3>
+                <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; align-items: flex-start;">
+                    <video src="素材/麦当劳案例/1.mp4" muted autoplay loop playsinline controls style="flex: 1; min-width: 0; height: 280px; object-fit: cover; border-radius: 4px;"></video>
+                    <img src="素材/麦当劳案例/1.webp" alt="麦当劳案例截图" style="flex: 1; min-width: 0; height: 280px; object-fit: cover; object-position: top; border-radius: 4px;" loading="lazy" decoding="async">
                 </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.5rem;">点击图片查看大图</p>
-                <p>作为「AI 图生图」玩法"AI妙趣特效"的商业化核心负责人，主导该产品从0到1的完整落地，包含产品形态定义、玩法链路设计、点位沟通、到商业化包装，全程驱动跨部门协作推进上线。本次王老吉合作即为该产品首批规模化商业落地案例之一：洞察CNY节点路人及张凌赫粉丝心理，借势明星合拍玩法，以AI图生图技术放大UGC势能，将品牌理念自然融入用户社交行为。项目总曝光35.1亿，系列互动玩法总使用6658w。</p>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -1rem; margin-bottom: 1.5rem;">点击查看完整内容</p>
+                <p>参与美图首个AI-Agent广告产品的商业化落地，负责与产品团队深度对接，推动Agent产品形态从技术能力向可售卖的广告产品转化，并完成本次麦当劳项目的落地执行：以对话式交互替代传统广告触达，让用户在自主生成定制画风、场景与剧情视频的过程中完成品牌深度沟通。项目总曝光1.3亿，系列互动玩法总使用89w。</p>
                 <div class="project-link-card">
-                    <a href="https://mp.weixin.qq.com/s/70KJfHckieWfu9u2Xld7HQ" target="_blank">
+                    <a href="https://mp.weixin.qq.com/s/hXNG8gh137gkbnnKukercQ" target="_blank">
                         <div class="link-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -1080,54 +1121,18 @@
                             </svg>
                         </div>
                         <div class="link-card-text">
-                            <span class="link-card-title">王老吉 x 美图秀秀 CNY专项案例</span>
+                            <span class="link-card-title">麦当劳 x 美图 AI-Agent专项案例</span>
                             <span class="link-card-url">点击查看完整案例 →</span>
                         </div>
                     </a>
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <span class="stat-value">35.1亿</span>
+                        <span class="stat-value">1.3亿</span>
                         <span class="stat-label">总曝光</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value">6658w</span>
-                        <span class="stat-label">互动使用</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card reveal">
-                <p class="project-tag">AI图生视频 · 营销案例</p>
-                <h3>JORDAN x 美图秀秀 新品专项</h3>
-                <div class="project-videos">
-                    <video src="素材/jordan 案例/1.mp4" muted autoplay loop playsinline controls></video>
-                    <video src="素材/jordan 案例/2.mp4" muted autoplay loop playsinline controls></video>
-                    <video src="素材/jordan 案例/3.mov" muted autoplay loop playsinline controls></video>
-                </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击播放视频</p>
-                <p>深度参与「AI图生视频」产品"AI脑洞特效"能力的商业化落地与产品打磨，基于对该路径的理解，配合本次JORDAN新品专项完成创意转化：以"所见即所得"为策略核心，借助AI图生视频技术实现虚拟试穿与场景定制，将新品体验门槛降至最低，驱动用户主动生成与分享。项目总曝光1.1亿，互动玩法总使用116.5w。本次项目斩获金鼠标、虎啸等多个奖项。</p>
-                <div class="project-link-card">
-                    <a href="https://mp.weixin.qq.com/s/FkqzHoJsf-uH6ZSbZ_xvDA" target="_blank">
-                        <div class="link-card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15 3 21 3 21 9"/>
-                                <line x1="10" y1="14" x2="21" y2="3"/>
-                            </svg>
-                        </div>
-                        <div class="link-card-text">
-                            <span class="link-card-title">JORDAN x 美图秀秀 新品专项案例</span>
-                            <span class="link-card-url">点击查看完整案例 →</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="project-stats">
-                    <div class="stat">
-                        <span class="stat-value">1.1亿</span>
-                        <span class="stat-label">总曝光</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">116.5w</span>
+                        <span class="stat-value">89w</span>
                         <span class="stat-label">互动使用</span>
                     </div>
                 </div>
@@ -1167,17 +1172,24 @@
                     </div>
                 </div>
             </div>
+            <!-- 查看更多案例 -->
+            <div class="more-cases-wrapper">
+                <button class="more-cases-btn" onclick="toggleMoreCases(this)">
+                    <span class="toggle-icon">+</span> 点击查看更多案例
+                </button>
+                <div class="hidden-cases" style="display: none;">
             <div class="project-card reveal">
-                <p class="project-tag">AI Agent · 营销案例</p>
-                <h3>麦当劳 x 美图 AI-Agent专项</h3>
-                <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; align-items: flex-start;">
-                    <video src="素材/麦当劳案例/1.mp4" muted autoplay loop playsinline controls style="flex: 1; min-width: 0; height: 280px; object-fit: cover; border-radius: 4px;"></video>
-                    <img src="素材/麦当劳案例/1.webp" alt="麦当劳案例截图" style="flex: 1; min-width: 0; height: 280px; object-fit: cover; object-position: top; border-radius: 4px;" loading="lazy" decoding="async">
+                <p class="project-tag">AI图生图 · 营销案例</p>
+                <h3>王老吉 x 美图秀秀 CNY专项</h3>
+                <div class="project-images" style="display: flex; gap: 0.75rem;">
+                    <img src="素材/王老吉案例/3.webp" alt="王老吉CNY案例图1" style="flex: 1; min-width: 0; object-fit: contain;" loading="lazy" decoding="async">
+                    <img src="素材/王老吉案例/4.webp" alt="王老吉CNY案例图2" style="flex: 1; min-width: 0; object-fit: contain;" loading="lazy" decoding="async">
+                    <img src="素材/王老吉案例/5.webp" alt="王老吉CNY案例图3" style="flex: 1; min-width: 0; object-fit: contain;" loading="lazy" decoding="async">
                 </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: -1rem; margin-bottom: 1.5rem;">点击查看完整内容</p>
-                <p>参与美图首个AI-Agent广告产品的商业化落地，负责与产品团队深度对接，推动Agent产品形态从技术能力向可售卖的广告产品转化，并完成本次麦当劳项目的落地执行：以对话式交互替代传统广告触达，让用户在自主生成定制画风、场景与剧情视频的过程中完成品牌深度沟通。项目总曝光1.3亿，系列互动玩法总使用89w。</p>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.5rem;">点击图片查看大图</p>
+                <p>作为「AI 图生图」玩法"AI妙趣特效"的商业化核心负责人，主导该产品从0到1的完整落地，包含产品形态定义、玩法链路设计、点位沟通、到商业化包装，全程驱动跨部门协作推进上线。本次王老吉合作即为该产品首批规模化商业落地案例之一：洞察CNY节点路人及张凌赫粉丝心理，借势明星合拍玩法，以AI图生图技术放大UGC势能，将品牌理念自然融入用户社交行为。项目总曝光35.1亿，系列互动玩法总使用6658w。</p>
                 <div class="project-link-card">
-                    <a href="https://mp.weixin.qq.com/s/hXNG8gh137gkbnnKukercQ" target="_blank">
+                    <a href="https://mp.weixin.qq.com/s/70KJfHckieWfu9u2Xld7HQ" target="_blank">
                         <div class="link-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -1186,23 +1198,61 @@
                             </svg>
                         </div>
                         <div class="link-card-text">
-                            <span class="link-card-title">麦当劳 x 美图 AI-Agent专项案例</span>
+                            <span class="link-card-title">王老吉 x 美图秀秀 CNY专项案例</span>
                             <span class="link-card-url">点击查看完整案例 →</span>
                         </div>
                     </a>
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <span class="stat-value">1.3亿</span>
+                        <span class="stat-value">35.1亿</span>
                         <span class="stat-label">总曝光</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value">89w</span>
+                        <span class="stat-value">6658w</span>
                         <span class="stat-label">互动使用</span>
                     </div>
                 </div>
             </div>
-            <!-- Xiaomi Cases -->
+
+            <div class="project-card reveal">
+                <p class="project-tag">AI图生视频 · 营销案例</p>
+                <h3>JORDAN x 美图秀秀 新品专项</h3>
+                <div class="project-videos">
+                    <video src="素材/jordan 案例/1.mp4" muted autoplay loop playsinline controls></video>
+                    <video src="素材/jordan 案例/2.mp4" muted autoplay loop playsinline controls></video>
+                    <video src="素材/jordan 案例/3.mov" muted autoplay loop playsinline controls></video>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击播放视频</p>
+                <p>深度参与「AI图生视频」产品"AI脑洞特效"能力的商业化落地与产品打磨，基于对该路径的理解，配合本次JORDAN新品专项完成创意转化：以"所见即所得"为策略核心，借助AI图生视频技术实现虚拟试穿与场景定制，将新品体验门槛降至最低，驱动用户主动生成与分享。项目总曝光1.1亿，互动玩法总使用116.5w。本次项目斩获金鼠标、虎啸等多个奖项。</p>
+                <div class="project-link-card">
+                    <a href="https://mp.weixin.qq.com/s/FkqzHoJsf-uH6ZSbZ_xvDA" target="_blank">
+                        <div class="link-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="link-card-text">
+                            <span class="link-card-title">JORDAN x 美图秀秀 新品专项案例</span>
+                            <span class="link-card-url">点击查看完整案例 →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">1.1亿</span>
+                        <span class="stat-label">总曝光</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">116.5w</span>
+                        <span class="stat-label">互动使用</span>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
             <div id="projects-xiaomi"></div>
             <div class="project-card reveal" style="display: flex; gap: 2rem; align-items: flex-start;">
                 <div style="flex: 0 0 45%; min-width: 0;">
@@ -1295,28 +1345,6 @@
                 </div>
             </div>
             <div class="project-card reveal">
-                <p class="project-tag">电竞营销 · 腾讯</p>
-                <h3>微视电竞星战队 x 王者荣耀 联合营销项目</h3>
-                <div class="project-images-row">
-                    <img src="素材/微视电竞行战队/1.webp" alt="微视电竞星战队图1" loading="lazy" decoding="async">
-                    <img src="素材/微视电竞行战队/2.webp" alt="微视电竞星战队图2" loading="lazy" decoding="async">
-                    <img src="素材/微视电竞行战队/3.webp" alt="微视电竞星战队图3" loading="lazy" decoding="async">
-                    <img src="素材/微视电竞行战队/4.webp" alt="微视电竞星战队图4" loading="lazy" decoding="async">
-                    <img src="素材/微视电竞行战队/5.webp" alt="微视电竞星战队图5" loading="lazy" decoding="async">
-                </div>
-                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
-                <p>行业首个全明星王者电竞女子团队，以内容破圈为核心策略，联动金晨、李斯丹妮、孟佳、郁可唯、张含韵6位顶流艺人，打通赛事出席、主题曲演唱、直播、线下扫楼等全场景内容链路，开创电竞×娱乐×短视频平台联动的新玩法。<br><br>7天集中引爆：10次微博热搜，相关话题阅读量25.6亿+，话题讨论量127.5w+，端内相关短视频VV5087万，实现现象级传播破圈。<br><br>个人主要负责整体宣发节奏规划、物料监制与分发，及线下活动全流程规划、执行。</p>
-                <div class="project-stats">
-                    <div class="stat">
-                        <span class="stat-value">25.6亿+</span>
-                        <span class="stat-label">话题阅读量</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">10次</span>
-                        <span class="stat-label">微博热搜</span>
-                    </div>
-                </div>
-            </div>
             <div class="project-card reveal">
                 <p class="project-tag">综艺营销 · 腾讯</p>
                 <h3>创造营2020</h3>
@@ -1340,6 +1368,38 @@
                     </div>
                 </div>
             </div>
+            <div class="project-card reveal">
+            <!-- 查看更多案例 -->
+            <div class="more-cases-wrapper">
+                <button class="more-cases-btn" onclick="toggleMoreCases(this)">
+                    <span class="toggle-icon">+</span> 点击查看更多案例
+                </button>
+                <div class="hidden-cases" style="display: none;">
+            <div class="project-card reveal">
+                <p class="project-tag">电竞营销 · 腾讯</p>
+                <h3>微视电竞星战队 x 王者荣耀 联合营销项目</h3>
+                <div class="project-images-row">
+                    <img src="素材/微视电竞行战队/1.webp" alt="微视电竞星战队图1" loading="lazy" decoding="async">
+                    <img src="素材/微视电竞行战队/2.webp" alt="微视电竞星战队图2" loading="lazy" decoding="async">
+                    <img src="素材/微视电竞行战队/3.webp" alt="微视电竞星战队图3" loading="lazy" decoding="async">
+                    <img src="素材/微视电竞行战队/4.webp" alt="微视电竞星战队图4" loading="lazy" decoding="async">
+                    <img src="素材/微视电竞行战队/5.webp" alt="微视电竞星战队图5" loading="lazy" decoding="async">
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem;">点击图片查看大图</p>
+                <p>行业首个全明星王者电竞女子团队，以内容破圈为核心策略，联动金晨、李斯丹妮、孟佳、郁可唯、张含韵6位顶流艺人，打通赛事出席、主题曲演唱、直播、线下扫楼等全场景内容链路，开创电竞×娱乐×短视频平台联动的新玩法。<br><br>7天集中引爆：10次微博热搜，相关话题阅读量25.6亿+，话题讨论量127.5w+，端内相关短视频VV5087万，实现现象级传播破圈。<br><br>个人主要负责整体宣发节奏规划、物料监制与分发，及线下活动全流程规划、执行。</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="stat-value">25.6亿+</span>
+                        <span class="stat-label">话题阅读量</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">10次</span>
+                        <span class="stat-label">微博热搜</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card reveal">
+
             <div class="project-card reveal">
                 <p class="project-tag">综艺营销 · 腾讯</p>
                 <h3>明日之子乐团季</h3>
@@ -1366,6 +1426,8 @@
                 </div>
             </div>
             <!-- JD Cases -->
+                </div>
+            </div>
             <div id="projects-jd"></div>
             <div class="project-card reveal">
                 <p class="project-tag">智能平台 · 京东</p>
@@ -1576,6 +1638,22 @@
             if (e.key === 'ArrowLeft') showPrev();
             if (e.key === 'ArrowRight') showNext();
         });
+
+        // Toggle more cases
+        function toggleMoreCases(btn) {
+            const wrapper = btn.parentElement;
+            const hidden = wrapper.querySelector('.hidden-cases');
+            const icon = btn.querySelector('.toggle-icon');
+            if (hidden.style.display === 'none') {
+                hidden.style.display = 'block';
+                btn.classList.add('open');
+                icon.textContent = '−';
+            } else {
+                hidden.style.display = 'none';
+                btn.classList.remove('open');
+                icon.textContent = '+';
+            }
+        }
     </script>
 </body>
 </html>
