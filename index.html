@@ -903,9 +903,9 @@
             .project-card .project-images-row-auto { height: auto; flex-direction: column; gap: 0.5rem; }
             .project-card .project-images-row-auto img { height: auto; max-height: 180px; flex: none; width: 100%; }
             .project-card .project-images img { max-height: 200px; flex: 1 1 100%; height: 200px; }
-            /* 480px: prevent images in column-mode flex from collapsing to 0 */
-            .project-card [style*="display: flex"] img,
-            .project-card [style*="display: flex"] video {
+            /* 480px: prevent images in column-mode flex from collapsing (exclude scroll containers) */
+            .project-card [style*="display: flex"]:not(.scroll-row) img,
+            .project-card [style*="display: flex"]:not(.scroll-row) video {
                 width: 100% !important;
                 min-height: 120px;
                 flex: auto !important;
@@ -928,12 +928,13 @@
             }
             /* Video-first: video ~90vw natural ratio, images ~45vw */
             .scroll-video video {
-                width: 90vw;
+                width: 90vw !important;
                 height: auto !important;
                 max-height: 55vh;
                 object-fit: contain !important;
                 flex: none !important;
                 min-width: 0;
+                display: block !important;
             }
             .scroll-video img {
                 width: 45vw;
